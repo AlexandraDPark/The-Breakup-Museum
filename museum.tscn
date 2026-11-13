@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cy6rd1es3nsv2"]
+
+[ext_resource type="Texture2D" uid="uid://dsbemehe6in5r" path="res://art/background.png" id="1_568wf"]
+[ext_resource type="Script" uid="uid://drjr2lool6efh" path="res://museum/museum.gd" id="1_dqoon"]
+[ext_resource type="Texture2D" uid="uid://t7rav3icuh3c" path="res://art/npc1.png" id="2_ppp3w"]
+[ext_resource type="Texture2D" uid="uid://dwa1newtn16de" path="res://art/booth.png" id="2_qsmtv"]
+[ext_resource type="Texture2D" uid="uid://biusqqv5o7mip" path="res://art/npc2.png" id="3_k4muu"]
+[ext_resource type="Texture2D" uid="uid://ckxwmkmoqvpj1" path="res://art/npc3.png" id="3_w0mec"]
+[ext_resource type="Texture2D" uid="uid://du5cpptwe51x3" path="res://art/donation_form.png" id="5_dqoon"]
+[ext_resource type="Texture2D" uid="uid://bi8i5h4omi4u5" path="res://art/submit.png" id="6_k4muu"]
+
+[node name="Museum" type="Control" unique_id=1869657197]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dqoon")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1929086485]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_568wf")
+
+[node name="NPC3" type="TextureRect" parent="." unique_id=1614682578]
+layout_mode = 0
+offset_left = 131.99998
+offset_top = 6.0
+offset_right = 580.0
+offset_bottom = 454.0
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("3_w0mec")
+
+[node name="NPC2" type="TextureRect" parent="." unique_id=375778338]
+layout_mode = 0
+offset_left = 133.0001
+offset_top = 11.0
+offset_right = 2197.0
+offset_bottom = 1803.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_k4muu")
+
+[node name="NPC1" type="TextureRect" parent="." unique_id=1464663511]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -114.0
+offset_right = 432.0
+offset_bottom = 334.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_ppp3w")
+
+[node name="Booth" type="TextureRect" parent="." unique_id=1296082301]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_qsmtv")
+
+[node name="DonationForm" type="TextureRect" parent="." unique_id=1455294812]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 194.0
+offset_right = 459.0
+offset_bottom = 362.0
+texture = ExtResource("5_dqoon")
+
+[node name="SubmitButton" type="TextureButton" parent="." unique_id=181602032]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 314.0
+offset_right = 630.0
+offset_bottom = 390.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_k4muu")

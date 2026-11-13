@@ -1,0 +1,77 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Arrays;
+import java.util.NoSuchElementException;
+
+public class DijkstraTests {
+    // Create a directed graph for testing
+    private DijkstraGraph<String, Integer> createGraph() {
+        DijkstraGraph<String, Integer> graph = new DijkstraGraph<>();
+
+        for (String node : Arrays.asList("A", "B", "C", "D", "E", "F", "G")) {
+            graph.addNode(node);
+        }
+
+        graph.addEdge("A", "D", 4);
+        graph.addEdge("A", "E", 2);
+        graph.addEdge("A", "F", 3);
+        graph.addEdge("B", "G", 2);
+        graph.addEdge("C", "B", 3);
+        graph.addEdge("C", "D", 2);
+        graph.addEdge("D", "B", 4);
+        graph.addEdge("E", "C", 2);
+        graph.addEdge("E", "G", 8);
+        graph.addEdge("F", "C", 2);
+        graph.addEdge("F", "D", 3);
+        graph.addEdge("F", "E", 4);
+
+        return graph;
+    }
+
+    /**
+     * Tests the shortest path from A to G in the example graph
+     * Verifies both the total cost and node sequence.
+     */
+    @Test
+    public void testShortestPathExample() {
+        DijkstraGraph<String, Integer> graph = createGraph();
+
+        assertEquals(9.0, graph.shortestPathCost("A", "G"));
+
+        assertEquals(Arrays.asList("A", "E", "C", "B", "G"), graph.shortestPathNodes("A", "G"));
+    }
+
+    /**
+     * Tests the shortest path from D to G using the same graph
+     * Verifies the cost and node sequence for different endpoints.
+     */
+    @Test
+    public void testDifferentStartAndEnd() {
+        DijkstraGraph<String, Integer> graph = createGraph();
+
+        assertEquals(6.0, graph.shortestPathCost("D", "G"));
+        assertEquals(Arrays.asList("D", "B", "G"), graph.shortestPathNodes("D", "G"));
+    }
+
+    /**
+     * Tests exceptions for unreachable paths and missing nodes
+     * Both shortest-path methods must throw NoSuchElementException.
+     */
+    @Test
+    public void testMissingAndUnreachableNodes() {
+        DijkstraGraph<String, Integer> graph = createGraph();
+
+        assertThrows(NoSuchElementException.class,
+                     () -> graph.shortestPathCost("G", "A"));
+                     
+        assertThrows(NoSuchElementException.class,
+                     () -> graph.shortestPathNodes("G", "A"));
+
+        assertThrows(NoSuchElementException.class,
+                     () -> graph.shortestPathNodes("Z", "A"));
+
+        assertThrows(NoSuchElementException.class,
+                     () -> graph.shortestPathCost("A", "Z"));
+    }
+}

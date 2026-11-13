@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://jdeaht8fduvb"]
+
+[ext_resource type="Texture2D" uid="uid://cm0wgx3ayhsji" path="res://art/title.png" id="1_ak2if"]
+[ext_resource type="Script" uid="uid://ceb0swuntc75o" path="res://title_screen.gd" id="1_ig5kc"]
+[ext_resource type="Texture2D" uid="uid://cgpmsqsnibexo" path="res://art/play.png" id="3_05l2w"]
+[ext_resource type="Texture2D" uid="uid://krr6e06ggap1" path="res://art/title (2).png" id="4_hafda"]
+
+[node name="Node2D" type="Node2D" unique_id=1360427833]
+
+[node name="TitleScreen" type="Control" parent="." unique_id=1940541732]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ig5kc")
+
+[node name="TitleArt" type="TextureRect" parent="TitleScreen" unique_id=263183828]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ak2if")
+
+[node name="PlayButton" type="TextureButton" parent="TitleScreen" unique_id=1183725491]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 234.0
+offset_right = 413.0
+offset_bottom = 310.0
+texture_normal = ExtResource("3_05l2w")
+
+[node name="Title" type="TextureRect" parent="TitleScreen" unique_id=1814154200]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 18.0
+offset_right = 456.0
+offset_bottom = 164.0
+texture = ExtResource("4_hafda")
